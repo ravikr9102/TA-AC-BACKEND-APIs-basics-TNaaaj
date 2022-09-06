@@ -1,0 +1,10 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+let commentSchema = new Schema ({
+    comment: { type: String, required: true },
+    author: { type: String},
+    bookId: { type: mongoose.Schema.Types.ObjectId,ref: "NewBook", required: true }
+},{ timestamps: true });
+
+module.exports = mongoose.model('Comment', commentSchema);
